@@ -1,7 +1,16 @@
 <template>
   <div class="row">
     <div class="col-3" v-for="player in players" :key="player.id">
-      {{ player.player }} <button @click="deletePlayer(player)">x</button>
+      <div class="card">
+        {{ player.player }}
+        <button
+          type="button"
+          class="btn btn-danger"
+          @click="deletePlayer(player)"
+        >
+          x
+        </button>
+      </div>
     </div>
   </div>
 </template>

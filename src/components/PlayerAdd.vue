@@ -1,6 +1,6 @@
 <template>
-  <div class="row">
-    <div v-if="showAlert" class="alert alert-danger" role="alert">
+  <div class="row justify-content-center">
+    <div v-if="showAlert" class="col-4 alert alert-danger" role="alert">
       You must specify a player name !
     </div>
   </div>

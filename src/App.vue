@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>Truth <small class="text-muted">or dare ?</small></h1>
+    <h1>Truth <small class="text-muted">or Dare ?</small></h1>
     <figcaption class="blockquote-footer">
       You have never enjoyed this game
       <cite title="Source Title">so much.</cite>
@@ -12,7 +12,7 @@
     <button
       type="button"
       class="btn btn-success"
-      :class="{ disabled: notReady }"
+      :class="{ disabled: !players.length || !!gameType }"
       @click="startGame()"
     >
       Commencer la partie
@@ -37,7 +37,6 @@ export default {
   setup() {
     let players = ref([]);
     let gameType = ref("");
-    let notReady = ref(true);
 
     const savePlayer = function (data) {
       players.value = [...players.value, { player: data, id: Date.now() }];
@@ -49,6 +48,7 @@ export default {
 
     const saveType = function (data) {
       gameType = data;
+      console.log(gameType);
     };
 
     const startGame = function () {
@@ -63,7 +63,6 @@ export default {
       players,
       gameType,
       startGame,
-      notReady,
     };
   },
 };
